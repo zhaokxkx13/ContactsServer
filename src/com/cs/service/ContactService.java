@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * Created by zhaokxkx13 on 2016/3/24.
@@ -25,6 +26,15 @@ public class ContactService {
         } catch (Exception e) {
             e.printStackTrace();
             return false;
+        }
+    }
+
+    public List<Contact> download(String id, int start, int num) {
+        try {
+            return cd.getContact(id, start, num);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
         }
     }
 }

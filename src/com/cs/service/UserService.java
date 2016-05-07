@@ -48,4 +48,9 @@ public class UserService {
         User user = ud.loadUser(id);
         return user.getContacts();
     }
+
+    public User get_user(String id) {
+        return ud.getUser(id);
+    }
+
 }

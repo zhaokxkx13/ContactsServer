@@ -20,7 +20,6 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.List;
-
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("file:E:\\ContactsServer\\web\\WEB-INF\\applicationContext.xml")
 public class Test {
@@ -35,7 +34,7 @@ public class Test {
     ContactService contactService;
     @org.junit.Test
     public void test() {
-        User user = userDaoImpl.getUser("1");
+        User user = userDaoImpl.loadUser("1");
         Contact contact = new Contact();
         contact.setName("hahaa");
         contact.setPhone_num("18646597036");

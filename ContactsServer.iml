@@ -21,6 +21,7 @@
       <configuration>
         <datasource-map>
           <unit-entry name="noname-applicationContext.xml@2085" value="dataSource" />
+          <unit-entry name="noname-applicationContext.xml@2129" value="dataSource" />
         </datasource-map>
         <naming-strategy-map />
       </configuration>
