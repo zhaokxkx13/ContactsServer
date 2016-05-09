@@ -2,12 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c8ec2409-bd1f-4f72-8e2e-e29e7c0e0ac7" name="Default" comment="新添加了模糊查询。。。修复了部分bug&#10;">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/ContactsServer_war_exploded/WEB-INF/classes/com/cs/controller/UserController.class" afterPath="$PROJECT_DIR$/out/artifacts/ContactsServer_war_exploded/WEB-INF/classes/com/cs/controller/UserController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/ContactsServer_war_exploded/WEB-INF/classes/com/cs/dao/ContactDao.class" afterPath="$PROJECT_DIR$/out/artifacts/ContactsServer_war_exploded/WEB-INF/classes/com/cs/dao/ContactDao.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/ContactsServer_war_exploded/WEB-INF/classes/com/cs/dao/impl/ContactDaoImpl.class" afterPath="$PROJECT_DIR$/out/artifacts/ContactsServer_war_exploded/WEB-INF/classes/com/cs/dao/impl/ContactDaoImpl.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/ContactsServer_war_exploded/WEB-INF/classes/com/cs/pojo/Contact.class" afterPath="$PROJECT_DIR$/out/artifacts/ContactsServer_war_exploded/WEB-INF/classes/com/cs/pojo/Contact.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/ContactsServer_war_exploded/WEB-INF/classes/com/cs/pojo/User.class" afterPath="$PROJECT_DIR$/out/artifacts/ContactsServer_war_exploded/WEB-INF/classes/com/cs/pojo/User.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/ContactsServer_war_exploded/WEB-INF/classes/com/cs/service/ContactService.class" afterPath="$PROJECT_DIR$/out/artifacts/ContactsServer_war_exploded/WEB-INF/classes/com/cs/service/ContactService.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ContactsServer/com/cs/controller/UserController.class" afterPath="$PROJECT_DIR$/out/production/ContactsServer/com/cs/controller/UserController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ContactsServer/com/cs/dao/ContactDao.class" afterPath="$PROJECT_DIR$/out/production/ContactsServer/com/cs/dao/ContactDao.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ContactsServer/com/cs/dao/impl/ContactDaoImpl.class" afterPath="$PROJECT_DIR$/out/production/ContactsServer/com/cs/dao/impl/ContactDaoImpl.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ContactsServer/com/cs/pojo/Contact.class" afterPath="$PROJECT_DIR$/out/production/ContactsServer/com/cs/pojo/Contact.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ContactsServer/com/cs/pojo/User.class" afterPath="$PROJECT_DIR$/out/production/ContactsServer/com/cs/pojo/User.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ContactsServer/com/cs/service/ContactService.class" afterPath="$PROJECT_DIR$/out/production/ContactsServer/com/cs/service/ContactService.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/cs/controller/UserController.java" afterPath="$PROJECT_DIR$/src/com/cs/controller/UserController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/cs/dao/impl/ContactDaoImpl.java" afterPath="$PROJECT_DIR$/src/com/cs/dao/impl/ContactDaoImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/cs/pojo/Contact.java" afterPath="$PROJECT_DIR$/src/com/cs/pojo/Contact.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/cs/pojo/User.java" afterPath="$PROJECT_DIR$/src/com/cs/pojo/User.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/cs/service/ContactService.java" afterPath="$PROJECT_DIR$/src/com/cs/service/ContactService.java" />
     </list>
     <ignored path="ContactsServer.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -79,11 +86,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="User.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="User.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/cs/pojo/User.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6082474">
+            <state vertical-scroll-proportion="0.0">
               <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="workspace.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.10555556">
+              <caret line="8" column="90" selection-start-line="8" selection-start-column="90" selection-end-line="8" selection-end-column="90" />
               <folding />
             </state>
           </provider>
@@ -132,6 +149,7 @@
         <option value="$PROJECT_DIR$/src/com/cs/pojo/Contact.java" />
         <option value="$PROJECT_DIR$/src/com/cs/pojo/User.java" />
         <option value="$PROJECT_DIR$/src/com/cs/controller/UserController.java" />
+        <option value="$PROJECT_DIR$/.idea/workspace.xml" />
       </list>
     </option>
   </component>
@@ -1037,7 +1055,7 @@
       <workItem from="1462519975496" duration="4782000" />
       <workItem from="1462525501489" duration="887000" />
       <workItem from="1462632515131" duration="324000" />
-      <workItem from="1462752683452" duration="4630000" />
+      <workItem from="1462752683452" duration="5380000" />
     </task>
     <task id="LOCAL-00001" summary="完成了基本的功能了">
       <created>1462632700474</created>
@@ -1045,7 +1063,13 @@
       <option name="project" value="LOCAL" />
       <updated>1462632700474</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="新添加了模糊查询。。。修复了部分bug&#10;">
+      <created>1462757397978</created>
+      <option name="number" value="00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1462757397978</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1081,7 +1105,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="85715000" />
+    <option name="totallyTimeSpent" value="86465000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1183,13 +1207,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/com/cs/pojo/Contact.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="35" column="25" selection-start-line="35" selection-start-column="25" selection-end-line="35" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/WEB-INF/applicationContext.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1561,8 +1578,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/cs/pojo/User.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6082474">
+        <state vertical-scroll-proportion="0.0">
           <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.10555556">
+          <caret line="8" column="90" selection-start-line="8" selection-start-column="90" selection-end-line="8" selection-end-column="90" />
           <folding />
         </state>
       </provider>
