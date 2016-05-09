@@ -23,6 +23,7 @@ public class ContactDaoImpl extends HibernateDaoSupport implements ContactDao {
     UserDaoImpl userDaoImpl;
     @Resource
     SessionFactory sessionFactory;
+
     @Override
     public void addContact(Contact contact) {
         super.getHibernateTemplate().save(contact);
@@ -50,7 +51,7 @@ public class ContactDaoImpl extends HibernateDaoSupport implements ContactDao {
         session.getTransaction().begin();
         String hql = "select  contact from Contact contact where contact.user=:user";
         Query query = session.createQuery(hql).setFirstResult(start).setMaxResults(ends);
-        query.setParameter("user",user);
+        query.setParameter("user", user);
         return (List<Contact>) query.list();
     }
 
@@ -59,6 +60,10 @@ public class ContactDaoImpl extends HibernateDaoSupport implements ContactDao {
         User user = userDaoImpl.getUser(contact_id);
         Session session = sessionFactory.openSession();
         session.beginTransaction();
-        String sql =
+        String sql = "from Contact contact where contact.phone_num like :phone_num and contact.user = :user";
+        Query query = session.createQuery(sql);
+        query.setParameter("phone_num", "%" + arg + "%");
+        query.setParameter("user", user);
+        return (List<Contact>) query.list();
     }
 }

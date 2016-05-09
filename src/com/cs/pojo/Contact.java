@@ -1,5 +1,6 @@
 package com.cs.pojo;
 
+import com.google.gson.annotations.Expose;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.*;
@@ -9,8 +10,11 @@ import javax.persistence.*;
  */
 @Entity
 public class Contact {
+    @Expose
     private Integer id;
+    @Expose
     private String name;
+    @Expose
     private String phone_num;
     private User user;
 

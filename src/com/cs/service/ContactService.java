@@ -37,4 +37,13 @@ public class ContactService {
             return null;
         }
     }
+
+    public List<Contact> download(String id, String args) {
+        try {
+            return cd.getContactByString(id, args);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
 }

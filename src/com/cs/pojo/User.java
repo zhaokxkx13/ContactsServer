@@ -1,5 +1,6 @@
 package com.cs.pojo;
 
+import com.google.gson.annotations.Expose;
 import org.hibernate.annotations.GenericGenerator;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -14,11 +15,15 @@ import java.util.List;
  */
 @Entity
 public class User {
-
+    @Expose
     private String id;      //电话号码
+    @Expose
     private String name;
+    @Expose
     private String password;
+    @Expose
     private String gender;
+    @Expose
     private List<Contact> contacts;
 
     @Id

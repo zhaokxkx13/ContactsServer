@@ -5,8 +5,10 @@ import com.cs.pojo.User;
 import com.cs.service.ContactService;
 import com.cs.service.UserService;
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -26,7 +28,7 @@ public class UserController {
     @Resource
     ContactService contactService;
     User user = null;
-    Gson gson = new Gson();
+    Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
     Map<String, String> mp = null;
 
     //id password  name gender status:success,faild
@@ -61,15 +63,15 @@ public class UserController {
         return gson.toJson(mp);
     }
 
-    @ResponseBody()
-    @RequestMapping(value = "/download", method = RequestMethod.POST,produces = "text/html;charset=UTF-8")
+    @ResponseBody
+    @RequestMapping(value = "/download", method = RequestMethod.POST, produces = "text/html;charset=UTF-8")
     public String download(String id, String start, String count) {
-        List<Contact> list = contactService.download(id,Integer.parseInt(start),Integer.parseInt(count));
-        List <Map<String,String>> list_return = new ArrayList<>();
-        for(Contact item:list){
+        List<Contact> list = contactService.download(id, Integer.parseInt(start), Integer.parseInt(count));
+        List<Map<String, String>> list_return = new ArrayList<>();
+        for (Contact item : list) {
             mp = new HashMap<>();
-            mp.put("name",item.getName());
-            mp.put("phone_num",item.getPhone_num());
+            mp.put("name", item.getName());
+            mp.put("phone_num", item.getPhone_num());
             list_return.add(mp);
         }
         return gson.toJson(list_return);
@@ -91,5 +93,14 @@ public class UserController {
         mp = new HashMap<>();
         mp.put("status", "success");
         return gson.toJson(mp);
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "download/args", method = RequestMethod.POST, produces = "text/html;charset=UTF-8")
+    public String download(String id, String arg) {
+        System.out.println(id);
+        System.out.println(arg);
+        System.out.println(contactService.download(id, arg));
+        return (gson.toJson(contactService.download(id, arg)));
     }
 }
