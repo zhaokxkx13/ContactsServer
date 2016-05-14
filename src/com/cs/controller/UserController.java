@@ -103,4 +103,14 @@ public class UserController {
         System.out.println(contactService.download(id, arg));
         return (gson.toJson(contactService.download(id, arg)));
     }
+
+    //明天改
+    @ResponseBody
+    @RequestMapping(value = "/upload/sync", method = RequestMethod.POST)
+    public String uploadSyn(String id, String contacts) {
+        Type type = new TypeToken<List<Contact>>() {
+        }.getType();
+        List<Contact> list = gson.fromJson(contacts, type);
+        return null;
+    }
 }
