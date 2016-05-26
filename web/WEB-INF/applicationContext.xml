@@ -74,6 +74,23 @@
     <bean id="userDaoImpl" class="com.cs.dao.impl.UserDaoImpl">
         <property name="hibernateTemplate" ref="hibernateTemplate"/>
     </bean>
+    <mvc:annotation-driven validator="validator" conversion-service="conversion-service"/>
+
+    <bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
+        <property name="providerClass" value="org.hibernate.validator.HibernateValidator"/>
+        <property name="validationMessageSource" ref="messageSource"/>
+    </bean>
+    <bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+        <property name="basenames">
+            <list>
+                <value>com.cs.UserValidationMessages</value>
+            </list>
+        </property>
+        <property name="fileEncodings" value="utf-8"/>
+        <property name="cacheSeconds" value="120"/>
+    </bean>
+
+    <bean id="conversion-service" class="org.springframework.format.support.FormattingConversionService"/>
 
 
 </beans>

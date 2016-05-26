@@ -1,11 +1,22 @@
 <component name="ArtifactManager">
-  <artifact type="exploded-war" name="ContactsServer:war exploded">
+  <artifact type="war" build-on-make="true" name="ContactsServer:war exploded">
     <output-path>$PROJECT_DIR$/out/artifacts/ContactsServer_war_exploded</output-path>
-    <root id="root">
+    <root id="archive" name="ContactsServer_war exploded.war">
       <element id="javaee-facet-resources" facet="ContactsServer_test/web/Web" />
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
           <element id="module-output" name="ContactsServer_test" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="dependcy" />
+          <element id="library" level="project" name="junit-4.12" />
+          <element id="library" level="project" name="Maven: commons-io:commons-io:2.2" />
+          <element id="library" level="project" name="Maven: com.fasterxml:classmate:1.1.0" />
+          <element id="library" level="project" name="Maven: commons-fileupload:commons-fileupload:1.3.1" />
+          <element id="library" level="project" name="Maven: javax.validation:validation-api:1.1.0.Final" />
+          <element id="library" level="project" name="Maven: org.hibernate:hibernate-validator:5.2.4.Final" />
+          <element id="library" level="project" name="Maven: org.jboss.logging:jboss-logging:3.2.1.Final" />
+          <element id="library" level="project" name="Maven: commons-codec:commons-codec:1.10" />
         </element>
       </element>
     </root>
