@@ -4,10 +4,12 @@ import com.cs.dao.UserDao;
 import com.cs.dao.impl.UserDaoImpl;
 import com.cs.pojo.Contact;
 import com.cs.pojo.User;
+import net.iharder.Base64;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
+import java.nio.charset.Charset;
 import java.util.List;
 
 /**
@@ -18,6 +20,8 @@ import java.util.List;
 public class UserService {
     @Resource
     UserDaoImpl ud;
+    @Resource
+    MailUtil md;
 
     public User sign_in(String user_id, String user_password) {
         User user = ud.getUser(user_id);
@@ -55,15 +59,36 @@ public class UserService {
         return ud.getUser(id);
     }
 
-    public void update_user(String id, String gender, String name, String password) {
+    public void update_user(String id, String name, String gender, String mail) {
         User user = ud.loadUser(id);
-        user.setGender(gender);
-        user.setPassword(password);
-        user.setName(name);
+        if (gender != null)
+            user.setGender(gender);
+        if (name != null)
+            user.setName(name);
+        if (mail != null)
+            user.setMail(mail);
         ud.updateUser(user);
     }
 
     public boolean registerValidation(String id) {
         return ud.userValidaton(id);
+    }
+
+
+    public boolean getPasswrod(String id) {
+        try {
+            User user = ud.getUser(id);
+            if (user.getPassword() != null) {
+                String password = new String(Base64.decode(user.getPassword().getBytes()), Charset.forName("UTF-8"));
+                md.send(user.getMail(), "Your password is " + password);
+                return true;
+            } else {
+                return false;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+
     }
 }

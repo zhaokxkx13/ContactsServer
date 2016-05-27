@@ -91,6 +91,7 @@
     </bean>
 
     <bean id="conversion-service" class="org.springframework.format.support.FormattingConversionService"/>
-
+    
+    <mvc:resources mapping="/Aboutus/**" location="/Aboutus/"/>
 
 </beans>

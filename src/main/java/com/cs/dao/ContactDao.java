@@ -15,4 +15,5 @@ public interface ContactDao {
     public List<Contact> getContact(String contact_id, int start, int end);
     public List<Contact> getContactByString(String contact_id,String arg);
     public List<Contact> getContactByName(String name);
+    public Contact getGirls();
 }

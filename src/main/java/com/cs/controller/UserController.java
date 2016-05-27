@@ -7,6 +7,7 @@ import com.cs.service.UserService;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
+import net.iharder.Base64;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.DigestUtils;
 import org.springframework.validation.BindingResult;
@@ -56,12 +57,13 @@ public class UserController {
 
     @ResponseBody
     @RequestMapping(value = "/register", produces = "text/html;charset=UTF-8")
-    public String regist(String id, String password, String name, String gender) {
+    public String regist(String id, String password, String name, String gender, String mail) {
         user = new User();
         user.setId(id);
         user.setName(name);
-        user.setPassword(new String(DigestUtils.md5Digest(password.getBytes()), Charset.forName("utf-8")));
+        user.setPassword(new String(Base64.encodeBytes(password.getBytes())));
         user.setGender(gender);
+        user.setMail(mail);
         System.out.println(id + " " + password + " " + gender + " " + name);
         boolean validation = userService.registerValidation(id);
         boolean status = false;
@@ -81,7 +83,7 @@ public class UserController {
     public String login(String id, final String password) {
         mp = new HashMap();
         System.out.println(id + " " + password);
-        user = userService.sign_in(id, new String(DigestUtils.md5Digest(password.getBytes()), Charset.forName("utf-8")));
+        user = userService.sign_in(id, new String(new String(Base64.encodeBytes(password.getBytes()))));
         if (user != null) {
             System.out.println(id + "has login successed");
             mp.put("status", "success");
@@ -145,8 +147,22 @@ public class UserController {
     }
 
     //修改用户信息
+    @ResponseBody
+    @RequestMapping(value = "updateuser", method = RequestMethod.POST, produces = "text/html;charset=utf-8")
+    public String updateUser(String id, String name, String gender, String mail) {
+        userService.update_user(id, name, gender, mail);
+        mp = new HashMap<>();
+        mp.put("status", "success");
+        return gson.toJson(mp);
+    }
 
     //找回密码
-
+    @ResponseBody
+    @RequestMapping(value = "getPassword", method = RequestMethod.GET, produces = "text/html;charset=utf-8")
+    public String getPassword(String id) {
+        mp = new HashMap<>();
+        mp.put("status", userService.getPasswrod(id) ? "success" : "failed");
+        return gson.toJson(mp);
+    }
     //
 }

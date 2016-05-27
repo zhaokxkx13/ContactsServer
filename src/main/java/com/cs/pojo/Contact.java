@@ -21,7 +21,7 @@ public class Contact {
     private String data1;
     private User user;
     @Expose
-    private byte[] photo;
+    private byte[] data15;
 
     @Id
     @GeneratedValue(generator = "generator2")
@@ -65,13 +65,11 @@ public class Contact {
     @Lob
     @Basic(fetch = FetchType.LAZY)
     @Column(columnDefinition = "Blob", nullable = true)
-    public byte[] getPhoto() {
-        return photo;
+    public byte[] getData15() {
+        return data15;
     }
 
-    public void setPhoto(byte[] photo) {
-        this.photo = photo;
+    public void setData15(byte[] data15) {
+        this.data15 = data15;
     }
-
-
 }

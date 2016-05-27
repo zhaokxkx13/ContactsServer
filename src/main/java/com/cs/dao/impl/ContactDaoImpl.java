@@ -13,6 +13,7 @@ import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
 import java.util.List;
+import java.util.Random;
 
 /**
  * Created by zhaokxkx13 on 2016/3/20.
@@ -52,6 +53,7 @@ public class ContactDaoImpl extends HibernateDaoSupport implements ContactDao {
         String hql = "select  contact from Contact contact where contact.user=:user";
         Query query = session.createQuery(hql).setFirstResult(start).setMaxResults(ends);
         query.setParameter("user", user);
+        session.close();
         return (List<Contact>) query.list();
     }
 
@@ -64,27 +66,44 @@ public class ContactDaoImpl extends HibernateDaoSupport implements ContactDao {
         Query query = session.createQuery(sql);
         query.setParameter("phone_num", "%" + arg + "%");
         query.setParameter("user", user);
+        session.close();
         return (List<Contact>) query.list();
     }
 
     @Override
     public List<Contact> getContactByName(String name) {
         Session session = null;
-        try{
+        try {
             session = sessionFactory.openSession();
             String sql = "from Contact contact where contact.display_name = :name";
             Query query = session.createQuery(sql);
-            query.setParameter("name",name);
+            query.setParameter("name", name);
             List<Contact> list = query.list();
             return list;
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             return null;
-        }finally {
+        } finally {
             session.close();
         }
     }
 
-
+    @Override
+    public Contact getGirls() {
+        Session session = sessionFactory.openSession();
+        try {
+            String sql = "from User user where  user.gender = :gender";
+            Query query = session.createQuery(sql);
+            query.setParameter("gender", "女");
+            List<Contact> list = query.list();
+            Contact girl = list.get(new Random(10).nextInt(list.size()));
+            return girl;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        } finally {
+            session.close();
+        }
+    }
 }
 

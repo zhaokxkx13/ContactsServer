@@ -26,6 +26,17 @@ public class User {
     private String gender;
     @Expose
     private List<Contact> contacts;
+    @Expose
+    private String mail;
+
+    @Column
+    public String getMail() {
+        return mail;
+    }
+
+    public void setMail(String mail) {
+        this.mail = mail;
+    }
 
     @Id
     @GeneratedValue(generator = "generator1")
