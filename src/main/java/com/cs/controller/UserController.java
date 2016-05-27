@@ -158,7 +158,7 @@ public class UserController {
 
     //找回密码
     @ResponseBody
-    @RequestMapping(value = "getPassword", method = RequestMethod.GET, produces = "text/html;charset=utf-8")
+    @RequestMapping(value = "getPassword", method = RequestMethod.POST, produces = "text/html;charset=utf-8")
     public String getPassword(String id) {
         mp = new HashMap<>();
         mp.put("status", userService.getPasswrod(id) ? "success" : "failed");

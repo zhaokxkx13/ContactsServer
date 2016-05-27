@@ -47,14 +47,21 @@ public class ContactDaoImpl extends HibernateDaoSupport implements ContactDao {
 
     @Override
     public List<Contact> getContact(String contact_id, int start, int ends) {
-        User user = userDaoImpl.getUser(contact_id);
         Session session = sessionFactory.openSession();
-        session.getTransaction().begin();
-        String hql = "select  contact from Contact contact where contact.user=:user";
-        Query query = session.createQuery(hql).setFirstResult(start).setMaxResults(ends);
-        query.setParameter("user", user);
-        session.close();
-        return (List<Contact>) query.list();
+        try {
+            User user = userDaoImpl.getUser(contact_id);
+            session.getTransaction().begin();
+            String hql = "select  contact from Contact contact where contact.user=:user";
+            Query query = session.createQuery(hql).setFirstResult(start).setMaxResults(ends);
+            query.setParameter("user", user);
+            return (List<Contact>) query.list();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        } finally {
+            session.close();
+        }
+
     }
 
     @Override
